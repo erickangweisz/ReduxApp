@@ -10,4 +10,12 @@ export class ChildComponent {
   @Input() counter: number;
 
   constructor() {}
+
+  multiply(): void {
+    this.counter *= 2;
+  }
+
+  divide(): void {
+    this.counter /= 2;
+  }
 }
