@@ -21,6 +21,6 @@
 
 <div class="row text-center">
   <div class="col">
-    <app-child [counter]="counter"></app-child>
+    <app-child [counter]="counter" (counterChange)="counter = $event"></app-child>
   </div>
 </div>
