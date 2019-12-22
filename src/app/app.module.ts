@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 // NgRx
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { counterReducer } from './counter/counter.reducer';
 
 import { AppComponent } from './app.component';
 import { ChildComponent } from './counter/child/child.component';
 import { GrandchildComponent } from './counter/grandchild/grandchild.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,11 @@ import { GrandchildComponent } from './counter/grandchild/grandchild.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ counter: counterReducer })
+    StoreModule.forRoot({ counter: counterReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
