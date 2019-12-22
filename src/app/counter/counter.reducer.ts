@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const RESET = 'RESET';
+export const INCREMENT = '[Counter] Increment';
+export const DECREMENT = '[Counter] Decrement';
+export const RESET = '[Counter] Reset';
 
 export function counterReducer(state: number = 10, action: Action) {
     switch (action.type) {
