@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-grandchild',
   templateUrl: './grandchild.component.html',
   styles: []
 })
-export class GrandchildComponent implements OnInit {
+export class GrandchildComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor() {}
 }
