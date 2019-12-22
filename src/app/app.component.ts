@@ -32,4 +32,11 @@ export class AppComponent {
     };
     this.store.dispatch(action);
   }
+
+  reset(): void {
+    const action: Action = {
+      type: 'RESET'
+    };
+    this.store.dispatch(action);
+  }
 }

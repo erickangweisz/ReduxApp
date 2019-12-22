@@ -8,10 +8,10 @@ export class IncrementAction implements Action {
     readonly type = INCREMENT;
 }
 
-export class Decrement implements Action {
+export class DecrementAction implements Action {
     readonly type = DECREMENT;
 }
 
-export class Reset implements Action {
+export class ResetAction implements Action {
     readonly type = RESET;
 }
