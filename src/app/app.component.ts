@@ -14,14 +14,12 @@ export class AppComponent {
   counter: number;
 
   constructor(private store: Store<AppState>) {
-    //this.counter = 10;
     this.store.subscribe(state => {
       this.counter = state.counter;
     });
   }
 
   increment(): void {
-    //this.counter++;
     const action: Action = {
       type: 'INCREMENT'
     };
@@ -29,7 +27,6 @@ export class AppComponent {
   }
 
   decrement(): void {
-    //this.counter--;
     const action: Action = {
       type: 'DECREMENT'
     };
