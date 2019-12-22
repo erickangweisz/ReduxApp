@@ -16,6 +16,6 @@
 
 <div class="row">
     <div class="col">
-        <app-grandchild></app-grandchild>
+        <app-grandchild [counter]="counter" (counterReset)="resetGrandchild($event)"></app-grandchild>
     </div>
 </div>
