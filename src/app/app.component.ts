@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { Store, Action } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { IncrementAction,
+         DecrementAction,
+         ResetAction } from './counter/counter.actions';
 
 interface AppState {
   counter: number;
@@ -20,23 +23,17 @@ export class AppComponent {
   }
 
   increment(): void {
-    const action: Action = {
-      type: 'INCREMENT'
-    };
+    const action = new IncrementAction();
     this.store.dispatch(action);
   }
 
   decrement(): void {
-    const action: Action = {
-      type: 'DECREMENT'
-    };
+    const action = new DecrementAction();
     this.store.dispatch(action);
   }
 
   reset(): void {
-    const action: Action = {
-      type: 'RESET'
-    };
+    const action = new ResetAction();
     this.store.dispatch(action);
   }
 }
