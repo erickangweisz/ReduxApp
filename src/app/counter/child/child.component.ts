@@ -1,5 +1,7 @@
-import { Component, Input, Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app.reducers';
+import { MultiplyAction, DivideAction } from '../counter.actions';
 
 @Component({
   selector: 'app-child',
@@ -7,24 +9,21 @@ import { EventEmitter } from '@angular/core';
   styles: []
 })
 export class ChildComponent {
+  counter: number;
 
-  @Input() counter: number;
-  @Output() counterChange = new EventEmitter<number>();
-
-  constructor() {}
+  constructor(private store: Store<AppState>) {
+    this.store.select('counter').subscribe(counter => {
+      this.counter = counter;
+    });
+  }
 
   multiply(): void {
-    this.counter *= 2;
-    this.counterChange.emit(this.counter);
+    const action = new MultiplyAction(2);
+    this.store.dispatch(action);
   }
 
   divide(): void {
-    this.counter /= 2;
-    this.counterChange.emit(this.counter);
-  }
-
-  resetGrandchild(newCounter: number) {
-    this.counter = newCounter;
-    this.counterChange.emit(this.counter);
+    const action = new DivideAction(2);
+    this.store.dispatch(action);
   }
 }
